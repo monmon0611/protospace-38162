@@ -13,7 +13,7 @@ end
 def create
   @prototype = Prototype.new(prototype_params)
   if @prototype.save
-     redirect_to action: :index
+      redirect_to action: :index
   else
     render :new
   end
@@ -33,9 +33,9 @@ def edit
 end
 
 def update
-  @prototype = Prototype.new(prototype_params)
-  if @prototype.save
-     redirect_to action: :show
+  @prototypes = Prototype.find(params[:id])
+  if @prototypes.update(prototype_params)
+      redirect_to action: :show
   else
     render :edit
   end
